@@ -1,7 +1,14 @@
 <?php
-    include('lib/antaresget.php');
+    // include('lib/antares-php.php');
+$jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+$obj = json_decode($jsonobj);
+
+foreach($obj as $key => $value) {
+    echo $key . " => " . $value . "<br>";
+}
 ?>
-<html>
+<html>  
     <head>
         <title>View Data</title>
     </head>
@@ -10,7 +17,6 @@
         <table>
         <tr>
             <td>Pesan  : </td>
-            <td><?= $someArrayFix[0]["jas"] ?></td>
         </tr>
         </table>
     </body>
