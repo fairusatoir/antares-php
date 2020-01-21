@@ -25,6 +25,7 @@
 - Set the  `your-access-key-here` parameter to your Antares access key.
 
 <br/>
+
 ```php 
 		send($yourdata, 'your-device-name', 'your-application-name'); 
 ``` 		
@@ -33,8 +34,9 @@
 - Set the  `your-application-name` parameter to your Antares application name.
 
 <br/>
+
 ```php 
-				$yourdata  =  $antares->print('your-device-name', 'your-application-name');
+		$yourdata  =  $antares->print('your-device-name', 'your-application-name');
 ``` 		
 - Get your data from Antares. return : JSON format
 - Set the  `your-device-name` parameter to your Antares device name.
