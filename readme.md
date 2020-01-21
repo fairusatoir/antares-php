@@ -2,19 +2,19 @@
 
 ### Usage
 ```php    
-	include('antares-php.php');
+include('antares-php.php');
 
-	$antares = new antares_php();
+$antares = new antares_php();
 
-	$antares->set_key('your-access-key-here');
+$antares->set_key('your-access-key-here');
 
-	$yourdata = '{"sensor":"value","sensor":"value"}';
+$yourdata = '{"sensor":"value","sensor":"value"}';
 
-	$antares->send($yourdata, 'your-device-name', 'your-application-name');  
+$antares->send($yourdata, 'your-device-name', 'your-application-name');  
 
-	$Viewdata = $antares->print('your-device-name', 'your-application-name');
+$Viewdata = $antares->print('your-device-name', 'your-application-name');
 
-	$Viewdata_encode = json_encode($Viewdata);
+$Viewdata_encode = json_encode($Viewdata);
 ``` 
 
 
@@ -22,14 +22,14 @@
 
 
 ```php 
-	set_key('your-access-key-here');
+set_key('your-access-key-here');
 ``` 		
 - Set the  `your-access-key-here` parameter to your Antares access key.
 
 <br/>
 
 ```php 
-	send($yourdata, 'your-device-name', 'your-application-name'); 
+send($yourdata, 'your-device-name', 'your-application-name'); 
 ``` 		
 - Set the  `yourdata` parameter to your data with JSON Format.
 - Set the  `your-device-name` parameter to your Antares device name.
@@ -38,7 +38,7 @@
 <br/>
 
 ```php 
-	$yourdata  =  $antares->print('your-device-name', 'your-application-name');
+$yourdata  =  $antares->print('your-device-name', 'your-application-name');
 ``` 		
 - Get your data from Antares. return : JSON format
 - Set the  `your-device-name` parameter to your Antares device name.
