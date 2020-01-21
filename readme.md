@@ -21,14 +21,11 @@ $Viewdata_encode = json_encode($Viewdata);
 ### Reference
 
 ```php
-> $antares = new antares_php(); 
+$antares = new antares_php(); 
 ```
-All methods and properties need to be insantiated in order to use them
+- All methods and properties need to be insantiated in order to use them
 
 <br/>
-
-<br/>
-
 
 ```php 
 set_key('your-access-key-here');
