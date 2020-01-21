@@ -1,16 +1,16 @@
 <?php
-include('lib/antares-php.php');
-$antares = new Antaresphp();
+include('antares-php.php');
+$antares = new antares_php();
 
-$antares->set_key('236239f36aa1b12c:c6270c4ba2ce6849');
+$antares->set_key('your-access-key-here');
 
-$data = '{"Temperature":"27","Humidity":"87","hhh":"rendah"}';
+$yourdata = '{"Sensor1":"Value1","Sensor2":"Value2"}';
 
-$antares->sendTo($data,'Generator','mysensor');  
+$antares->send($yourdata,'your-device-name', 'your-application-name');  
 
 
-$Viewdata = $antares->viewData('Generator','mysensor');
-$Viewdata_encode = json_encode($Viewdata);
+$yourdata = $antares->print('your-device-name', 'your-application-name');
+$yourdata_encode = json_encode($yourdata); //Json to String
 
 ?>
 <!DOCTYPE html> 
@@ -19,9 +19,9 @@ $Viewdata_encode = json_encode($Viewdata);
     <title>Antares GET/POST</title> 
   </head> 
   <body>  
-    <h1>DATA GET dari Antares</h1>
+    <h1>GET Data Antares</h1>
     <table>
-      <td>Pesan : </td>
+      <td>Message : </td>
       <td>
       <?php
         echo $Viewdata_encode

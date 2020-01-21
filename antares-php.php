@@ -1,6 +1,6 @@
 <?php 
 session_start();
-class Antaresphp {
+class antares_php {
   function set_key($accesskey) {
     $this->key = $accesskey;
   }
