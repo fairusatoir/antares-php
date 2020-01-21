@@ -2,7 +2,7 @@
 
 ### Usage
 
-        <!-- language: php -->    
+<!-- language: php -->    
         include('antares-php.php');
 
 		$antares = new antares_php();
