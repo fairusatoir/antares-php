@@ -1,6 +1,6 @@
 # Antares PHP
 
-###Usage
+### Usage
 
     
         include('antares-php.php');
@@ -19,7 +19,7 @@
     
 
 
-###Reference
+### Reference
 		set_key('your-access-key-here');
 		
 - Set the  `your-access-key-here` parameter to your Antares access key.
