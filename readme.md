@@ -2,7 +2,7 @@
 
 ###Usage
 
-    <?php
+    
         include('antares-php.php');
 
 		$antares = new antares_php();
@@ -16,7 +16,7 @@
 		$Viewdata = $antares->print('your-device-name', 'your-application-name');
 
 		$Viewdata_encode = json_encode($Viewdata);
-    ?>
+    
 
 
 ###Reference
