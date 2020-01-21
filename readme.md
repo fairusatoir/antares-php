@@ -25,6 +25,10 @@ $Viewdata_encode = json_encode($Viewdata);
 ```
 All methods and properties need to be insantiated in order to use them
 
+<br/>
+
+<br/>
+
 
 ```php 
 set_key('your-access-key-here');
