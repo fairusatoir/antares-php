@@ -3,12 +3,16 @@ include('lib/antares-php.php');
 $antares = new Antaresphp();
 
 $antares->set_key('236239f36aa1b12c:c6270c4ba2ce6849');
-// echo $antares->get_key();
-$antares->sendTo("hahas",'Generator','mysensor');  
-$data = $antares->viewData('Generator','mysensor');
+
+$data = '{"Temperature":"27","Humidity":"87","hhh":"rendah"}';
+
+$antares->sendTo($data,'Generator','mysensor');  
+
+
+$Viewdata = $antares->viewData('Generator','mysensor');
+$Viewdata_encode = json_encode($Viewdata);
 
 ?>
-
 <!DOCTYPE html> 
 <html lang="en"> 
   <head> 
@@ -18,7 +22,11 @@ $data = $antares->viewData('Generator','mysensor');
     <h1>DATA GET dari Antares</h1>
     <table>
       <td>Pesan : </td>
-      <td><?= $data[0]["sensor"] ?></td>
+      <td>
+      <?php
+        echo $Viewdata_encode
+      ?>
+      </td>
     </table>
   </body> 
 </html>

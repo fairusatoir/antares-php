@@ -1,16 +1,15 @@
 <?php 
 session_start();
 class Antaresphp {
-  public $header; 
-
   function set_key($accesskey) {
     $this->key = $accesskey;
   }
+
   function get_key() {
     return $this->key;
   }
 
-  function sendTo($data,$projectName,$deviceName){
+  function send($data,$deviceName,$projectName){
     $keyacc = "{$this->key}";
 
     $header = array(
@@ -21,8 +20,10 @@ class Antaresphp {
     );
 
     $curl = curl_init();
-    $sensor = "sensor";
-    $value = "6";
+    $dataSend = array(("m2m:cin") => array("con" => ($data)));
+    // $dataSend = array(("m2m:cin") => array("con" => ("$sensor:$value")));
+    $data_encode = json_encode($dataSend);
+    
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://platform.antares.id:8443/~/antares-cse/antares-id/".$projectName."/".$deviceName."",
       CURLOPT_RETURNTRANSFER => true,
@@ -32,7 +33,8 @@ class Antaresphp {
       CURLOPT_FOLLOWLOCATION => true,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS =>"{\r\n  \"m2m:cin\": {\r\n    \"con\": \"{\\\"$sensor\\\":\\\"$value\\\"}\"\r\n  }\r\n}",
+      // CURLOPT_POSTFIELDS =>"{\r\n  \"m2m:cin\": {\r\n    \"con\": \"{\\\"$sensor\\\":\\\"$value\\\"}\"\r\n  }\r\n}",
+      CURLOPT_POSTFIELDS =>$data_encode,
       CURLOPT_HTTPHEADER => $header,
     ));
 
@@ -40,7 +42,8 @@ class Antaresphp {
     curl_close($curl);
   }
 
-  function viewData($projectName,$deviceName){
+
+  function print($deviceName,$projectName){
     $keyacc = "{$this->key}";
     $header = array(
       "X-M2M-Origin: $keyacc",
@@ -78,7 +81,6 @@ class Antaresphp {
     $someJSONFix = '['.$temp_url.']';
 
     $someArrayFix = json_decode($someJSONFix, true);
-    $someArrayFix[0]["sensor"];
     return $someArrayFix;
   }
 }
