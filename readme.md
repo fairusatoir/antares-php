@@ -2,7 +2,7 @@
 
 ### Usage
 ```php    
-    include('antares-php.php');
+	include('antares-php.php');
 
 	$antares = new antares_php();
 
