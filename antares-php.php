@@ -43,7 +43,7 @@ class antares_php {
   }
 
 
-  function print($deviceName,$projectName){
+  function get($deviceName,$projectName){
     $keyacc = "{$this->key}";
     $header = array(
       "X-M2M-Origin: $keyacc",

@@ -9,7 +9,7 @@ $yourdata = '{"Sensor1":"Value1","Sensor2":"Value2"}';
 $antares->send($yourdata,'your-device-name', 'your-application-name');  
 
 
-$yourdata = $antares->print('your-device-name', 'your-application-name');
+$yourdata = $antares->get('your-device-name', 'your-application-name');
 $yourdata_encode = json_encode($yourdata); //Json to String
 
 ?>
