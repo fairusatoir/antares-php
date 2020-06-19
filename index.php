@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 include('antares-php.php');
 $antares = new antares_php();
@@ -16,10 +17,27 @@ if(array_key_exists('limit', $_POST)) {
 }
 ?>
 
+=======
+include('antares-php.php');
+$antares = new antares_php();
+
+$antares->set_key('your-access-key-here');
+
+$yourdata = '{"Sensor1":"Value1","Sensor2":"Value2"}';
+
+$antares->send($yourdata,'your-device-name', 'your-application-name');  
+
+
+$yourdata = $antares->print('your-device-name', 'your-application-name');
+$yourdata_encode = json_encode($yourdata); //Json to String
+
+?>
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
 <!DOCTYPE html> 
 <html lang="en"> 
   <head> 
     <title>Antares GET/POST</title> 
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
     .container {
@@ -120,5 +138,18 @@ if(array_key_exists('limit', $_POST)) {
 
       </div>
     </div>  
+=======
+  </head> 
+  <body>  
+    <h1>GET Data Antares</h1>
+    <table>
+      <td>Message : </td>
+      <td>
+      <?php
+        echo $Viewdata_encode
+      ?>
+      </td>
+    </table>
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
   </body> 
 </html>

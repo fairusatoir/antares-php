@@ -12,7 +12,11 @@ $yourdata = '{"sensor":"value","sensor":"value"}';
 
 $antares->send($yourdata, 'your-device-name', 'your-application-name');  
 
+<<<<<<< HEAD
 $Viewdata = $antares->get('your-device-name', 'your-application-name');
+=======
+$Viewdata = $antares->print('your-device-name', 'your-application-name');
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
 
 $Viewdata_encode = json_encode($Viewdata);
 ``` 
@@ -44,7 +48,11 @@ send($yourdata, 'your-device-name', 'your-application-name');
 <br/>
 
 ```php 
+<<<<<<< HEAD
 $yourdata  =  $antares->get('your-device-name', 'your-application-name');
+=======
+$yourdata  =  $antares->print('your-device-name', 'your-application-name');
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
 ``` 		
 - Get your data from Antares. return : JSON format
 - Set the  `your-device-name` parameter to your Antares device name.

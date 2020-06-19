@@ -1,9 +1,12 @@
 <?php 
 session_start();
 class antares_php {
+<<<<<<< HEAD
   // ==============
   // SET KEY ACCESS
   // ==============
+=======
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
   function set_key($accesskey) {
     $this->key = $accesskey;
   }
@@ -12,9 +15,12 @@ class antares_php {
     return $this->key;
   }
 
+<<<<<<< HEAD
   // ==============================
   // SEND data to server Antares.id
   // ==============================
+=======
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
   function send($data,$deviceName,$projectName){
     $keyacc = "{$this->key}";
 
@@ -27,6 +33,10 @@ class antares_php {
 
     $curl = curl_init();
     $dataSend = array(("m2m:cin") => array("con" => ($data)));
+<<<<<<< HEAD
+=======
+    // $dataSend = array(("m2m:cin") => array("con" => ("$sensor:$value")));
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
     $data_encode = json_encode($dataSend);
     
     curl_setopt_array($curl, array(
@@ -38,6 +48,7 @@ class antares_php {
       CURLOPT_FOLLOWLOCATION => true,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
+<<<<<<< HEAD
       CURLOPT_POSTFIELDS =>$data_encode,
       CURLOPT_HTTPHEADER => $header,
     ));
@@ -112,10 +123,19 @@ class antares_php {
     }else{
       echo "ERROR[004] : Application Name or Device Name is Wrong";
     }
+=======
+      // CURLOPT_POSTFIELDS =>"{\r\n  \"m2m:cin\": {\r\n    \"con\": \"{\\\"$sensor\\\":\\\"$value\\\"}\"\r\n  }\r\n}",
+      CURLOPT_POSTFIELDS =>$data_encode,
+      CURLOPT_HTTPHEADER => $header,
+    ));
+
+    $response = curl_exec($curl);
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
     curl_close($curl);
   }
 
 
+<<<<<<< HEAD
   // ===================================
   // GET ALL data from server Antares.id
   // ===================================
@@ -123,13 +143,26 @@ class antares_php {
     $keyacc = "{$this->key}";
     $header = array(
       "X-M2M-Origin: $keyacc",
+=======
+  function print($deviceName,$projectName){
+    $keyacc = "{$this->key}";
+    $header = array(
+      "X-M2M-Origin: $keyacc",
+      // "X-M2M-Origin: ",
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
       "Content-Type: application/json;ty=4",
       "Accept: application/json"
     );
 
     $curl = curl_init();
+<<<<<<< HEAD
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://platform.antares.id:8443/~/antares-cse/antares-id/".$projectName."/".$deviceName."?fu=1&ty=4",
+=======
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://platform.antares.id:8443/~/antares-cse/antares-id/".$projectName."/".$deviceName."/la",
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,
@@ -139,6 +172,7 @@ class antares_php {
       CURLOPT_CUSTOMREQUEST => "GET",
       CURLOPT_HTTPHEADER => $header,
     ));
+<<<<<<< HEAD
     //GET json Respone -> String
     $response = curl_exec($curl);
     // CHECK respone status
@@ -223,6 +257,25 @@ class antares_php {
     }
 
     
+=======
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    // var_dump($response);
+
+    $someJSON = '['.$response.']';
+    $someArray = json_decode($someJSON, true);
+
+    // print_r($someArray);
+    // echo $someArray[0]["m2m:cin"]["con"];
+
+    $temp_url = $someArray[0]["m2m:cin"]["con"];
+    $someJSONFix = '['.$temp_url.']';
+
+    $someArrayFix = json_decode($someJSONFix, true);
+    return $someArrayFix;
+>>>>>>> 35092da03776fdc7f5fc29c000c745acc843160a
   }
 }
 ?>
